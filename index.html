@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Real Pic AI (Gold Edition) – Login</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script type="module" src="assets/js/firebase.js"></script>
+  <script type="module">
+    import { auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } 
+      from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+
+    import { db, doc, getDoc, setDoc } 
+      from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+    const loginForm = document.getElementById("loginForm");
+    const googleBtn = document.getElementById("googleLogin");
+
+    const ADMIN_PASSWORD = import.meta.env?.VITE_ADMIN_PASSWORD || "NSYHJTJBTS"; // fallback
+
+    // Handle form login
+    loginForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      try {
+        if (password === ADMIN_PASSWORD) {
+          // Admin redirect
+          localStorage.setItem("userRole", "admin");
+          window.location.href = "admin.html";
+          return;
+        }
+
+        // Normal user login/signup
+        try {
+          await signInWithEmailAndPassword(auth, email, password);
+        } catch {
+          await createUserWithEmailAndPassword(auth, email, password);
+          await setDoc(doc(db, "users", email), {
+            email,
+            plan: "free",
+            savedImages: [],
+            createdAt: new Date().toISOString()
+          });
+        }
+
+        localStorage.setItem("userRole", "user");
+        window.location.href = "home.html";
+      } catch (error) {
+        alert(error.message);
+      }
+    });
+
+    // Google login
+    googleBtn.addEventListener("click", async () => {
+      const provider = new GoogleAuthProvider();
+      try {
+        const result = await signInWithPopup(auth, provider);
+        const user = result.user;
+
+        const docRef = doc(db, "users", user.email);
+        const docSnap = await getDoc(docRef);
+
+        if (!docSnap.exists()) {
+          await setDoc(docRef, {
+            email: user.email,
+            plan: "free",
+            savedImages: [],
+            createdAt: new Date().toISOString()
+          });
+        }
+
+        localStorage.setItem("userRole", "user");
+        window.location.href = "home.html";
+      } catch (error) {
+        alert(error.message);
+      }
+    });
+  </script>
+</head>
+<body>
+  <div class="login-container">
+    <h1 class="logo">Real Pic <span class="gold">AI</span> <span class="edition">(Gold Edition)</span></h1>
+    <form id="loginForm" class="login-box">
+      <input type="email" id="email" placeholder="Enter Email" required />
+      <input type="password" id="password" placeholder="Enter Password / OTP" required />
+      <button type="submit" class="btn">Login / Signup</button>
+    </form>
+
+    <button id="googleLogin" class="btn google-btn">Sign in with Google</button>
+  </div>
+</body>
+</html>
