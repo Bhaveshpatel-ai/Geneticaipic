@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Real Pic AI</title>
+  <link rel="stylesheet" href="assets/css/admin.css">
+  <script type="module" src="assets/js/firebase.js"></script>
+  <script type="module" src="assets/js/admin.js"></script>
+</head>
+<body>
+  <header>
+    <h1 class="logo">Admin <span class="gold">Dashboard</span></h1>
+    <button id="logoutBtn" class="logout">🚪 Logout</button>
+  </header>
+
+  <main>
+    <section id="analytics">
+      <h2>📊 Analytics Overview</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3>Total Users</h3>
+          <p id="totalUsers">0</p>
+        </div>
+        <div class="stat-card">
+          <h3>Daily Prompts</h3>
+          <p id="dailyPrompts">0</p>
+        </div>
+        <div class="stat-card">
+          <h3>Premium Conversions</h3>
+          <p id="premiumCount">0</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="alerts">
+      <h2>🚨 Unsafe Prompt Alerts</h2>
+      <div id="alertContainer"></div>
+    </section>
+
+    <section id="userData">
+      <h2>🧾 User Audit Log</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Plan</th>
+            <th>Total Prompts</th>
+            <th>Last Active</th>
+          </tr>
+        </thead>
+        <tbody id="userTableBody"></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
