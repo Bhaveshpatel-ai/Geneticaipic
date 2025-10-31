@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+body {
+  background: #0b0b0b;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+header {
+  padding: 30px;
+  background: #111;
+  border-bottom: 2px solid #d4af37;
+  box-shadow: 0 0 20px rgba(212,175,55,0.2);
+}
+h1 {
+  font-size: 28px;
+  color: #ffcc33;
+  text-shadow: 0 0 10px rgba(255,204,51,0.5);
+}
+
+.plan-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin: 40px auto;
+  max-width: 1000px;
+}
+
+.plan-card {
+  background: #141414;
+  border: 2px solid #d4af37;
+  border-radius: 15px;
+  width: 300px;
+  padding: 25px;
+  transition: 0.3s;
+  box-shadow: 0 0 15px rgba(255,204,51,0.1);
+}
+.plan-card:hover {
+  box-shadow: 0 0 25px rgba(255,204,51,0.3);
+  transform: translateY(-5px);
+}
+.price {
+  font-size: 22px;
+  margin: 10px 0;
+  color: #ffcc33;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+  font-size: 14px;
+  text-align: left;
+}
+ul li {
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,204,51,0.2);
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.buy-btn {
+  background: linear-gradient(90deg,#ffcc33,#d4af37);
+  border: none;
+  color: black;
+}
+.buy-btn:hover {
+  transform: scale(1.05);
+}
+
+.btn-disabled {
+  background: #333;
+  border: none;
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+footer {
+  padding: 15px;
+  font-size: 14px;
+  color: #ffcc33;
+  border-top: 1px solid #333;
+}
+footer .gold {
+  color: #d4af37;
+}
