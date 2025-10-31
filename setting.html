@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings | Real Pic AI (Gold Edition)</title>
+  <link rel="stylesheet" href="assets/css/setting.css">
+  <script type="module" src="assets/js/firebase.js"></script>
+  <script type="module" src="assets/js/setting.js"></script>
+</head>
+<body>
+  <header>
+    <h1 class="logo">Settings <span class="gold">Panel</span></h1>
+    <nav>
+      <button id="homeBtn" class="nav-btn">🏠 Home</button>
+      <button id="communityBtn" class="nav-btn">🌐 Community</button>
+      <button id="logoutBtn" class="nav-btn logout">🚪 Logout</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="userInfo">
+      <h2>Your Account</h2>
+      <div class="info-card">
+        <p><strong>Email:</strong> <span id="userEmail"></span></p>
+        <p><strong>Username:</strong> <span id="userName"></span></p>
+        <p><strong>Current Plan:</strong> <span id="userPlan" class="gold"></span></p>
+      </div>
+    </section>
+
+    <section id="planSection">
+      <h2>Upgrade Plan</h2>
+      <div class="plan-card">
+        <h3>Bunny Premium 💎</h3>
+        <ul>
+          <li>Unlimited Image Generation</li>
+          <li>AI Prompt Enhancer</li>
+          <li>Ad-Free Experience</li>
+          <li>Priority Queue</li>
+        </ul>
+        <button id="upgradeBtn" class="gold-btn">Upgrade Now</button>
+      </div>
+    </section>
+
+    <section id="extras">
+      <h2>Extras</h2>
+      <div class="extras-btns">
+        <button id="savedGalleryBtn" class="nav-btn">🖼️ Saved Gallery</button>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
