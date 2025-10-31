@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upgrade Plan | Real Pic AI</title>
+  <link rel="stylesheet" href="assets/css/payment.css">
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script type="module" src="assets/js/firebase.js"></script>
+  <script type="module" src="assets/js/payment.js"></script>
+</head>
+<body>
+  <header>
+    <h1>✨ Choose Your Plan</h1>
+  </header>
+
+  <main>
+    <div class="plan-container">
+      <div class="plan-card free">
+        <h2>Free Plan</h2>
+        <p class="price">₹0 / forever</p>
+        <ul>
+          <li>All features available</li>
+          <li>⚠️ Ads visible on every step</li>
+          <li>⚠️ Watermark on exported images</li>
+          <li>Basic AI generation speed</li>
+        </ul>
+        <button class="btn-disabled">Current Plan</button>
+      </div>
+
+      <div class="plan-card monthly">
+        <h2>Premium Monthly</h2>
+        <p class="price">₹99 / month</p>
+        <ul>
+          <li>🚫 No Ads + No Watermark</li>
+          <li>🚀 Fast AI Priority</li>
+          <li>Access to exclusive filters</li>
+        </ul>
+        <button class="buy-btn" data-plan="monthly">Upgrade Now</button>
+      </div>
+
+      <div class="plan-card yearly">
+        <h2>Premium Yearly</h2>
+        <p class="price">₹799 / year</p>
+        <ul>
+          <li>All monthly features</li>
+          <li>💎 Early access to new AI tools</li>
+          <li>🔥 Save ₹389 vs monthly plan</li>
+        </ul>
+        <button class="buy-btn" data-plan="yearly">Upgrade Now</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Powered by <span class="gold">Razorpay</span> | Real Pic AI 2025</p>
+  </footer>
+</body>
+</html>
