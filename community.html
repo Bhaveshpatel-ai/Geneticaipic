@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community | Real Pic AI (Gold Edition)</title>
+  <link rel="stylesheet" href="assets/css/community.css">
+  <script type="module" src="assets/js/firebase.js"></script>
+  <script type="module" src="assets/js/community.js"></script>
+</head>
+<body>
+  <header>
+    <h1 class="logo">Community <span class="gold">Gallery</span></h1>
+    <nav>
+      <button id="homeBtn" class="nav-btn">🏠 Home</button>
+      <button id="settingsBtn" class="nav-btn">⚙️ Settings</button>
+      <button id="logoutBtn" class="nav-btn logout">🚪 Logout</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="uploadSection">
+      <h2>Upload Your AI Image</h2>
+      <form id="uploadForm">
+        <input type="file" id="uploadImage" accept="image/*" required>
+        <textarea id="uploadPrompt" placeholder="Enter your prompt..." required></textarea>
+        <button type="submit" class="gold-btn">Upload</button>
+      </form>
+    </section>
+
+    <section id="gallerySection">
+      <h2>Your Private Gallery</h2>
+      <div id="galleryContainer"></div>
+    </section>
+  </main>
+</body>
+</html>
